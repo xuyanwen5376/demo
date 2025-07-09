@@ -16,6 +16,9 @@ class ActionPicker {
   /// 相册 assets 权限
   static Future<PrivilegeStatus> assetsPrivilege(BuildContext context) async {
     var privilege = await Privilege.photos();
+    print('--------------------');
+    print(privilege.result);
+    print('--------------------');
     if (!privilege.result) {
       await DialogWidget.show(
         context: context,

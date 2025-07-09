@@ -33,11 +33,11 @@ class PickerImageWidget extends StatelessWidget {
             ? null
             : () async {
                 // 相机权限
-                var privilege =
-                    await ActionPicker.cameraPrivilege(Get.context!);
-                if (!privilege.result) {
-                  return;
-                }
+                // var privilege =
+                //     await ActionPicker.cameraPrivilege(Get.context!);
+                // if (!privilege.result) {
+                //   return;
+                // }
 
                 // 相机拍摄
                 var result = await ActionPicker.camera(
@@ -60,15 +60,16 @@ class PickerImageWidget extends StatelessWidget {
             ? null
             : () async {
                 // 相册权限
-                var privilege =
-                    await ActionPicker.assetsPrivilege(Get.context!);
-                if (!privilege.result) {
-                  return;
-                }
+                // var privilege =
+                //     await ActionPicker.assetsPrivilege(Get.context!);
+                // if (!privilege.result) {
+                //   return;
+                // }
                 // 相册选取
                 var result = await ActionPicker.assets(
                   context: Get.context!,
                   type: RequestType.image,
+                  maxAssets: 1
                 );
                 onTapAlbum!(result);
                 Get.back();

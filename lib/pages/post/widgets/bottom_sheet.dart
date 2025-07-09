@@ -5,7 +5,6 @@ import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../../../common/index.dart';
 import 'picker.dart';
- 
 
 enum PickType { camera, asset }
 
@@ -50,9 +49,7 @@ class DuBottomSheet {
             );
           },
         ),
-        const DividerWidget(
-            size: 6,
-        ),
+        const DividerWidget(size: 6),
 
         // 取消
         _buildBtn(
@@ -66,8 +63,10 @@ class DuBottomSheet {
   }
 
   // 图片、视频
-  Widget _buildMediaImageVideo(BuildContext context,
-      {required PickType pickType}) {
+  Widget _buildMediaImageVideo(
+    BuildContext context, {
+    required PickType pickType,
+  }) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -82,18 +81,21 @@ class DuBottomSheet {
                 requestType: RequestType.image,
                 selectedAssets: selectedAssets,
               );
+            } else if (pickType == PickType.camera) {
+              // final asset = await DuPicker.takePhoto(context);
+              var asset = await DuPicker.camera(
+                context: context,
+                enableRecording: false,
+              );
+              if (asset == null) {
+                return;
+              }
+              if (selectedAssets == null) {
+                result = [asset];
+              } else {
+                result = [...selectedAssets!, asset];
+              }
             }
-            //  else if (pickType == PickType.camera) {
-            //   final asset = await DuPicker.takePhoto(context);
-            //   if (asset == null) {
-            //     return;
-            //   }
-            //   if (selectedAssets == null) {
-            //     result = [asset];
-            //   } else {
-            //     result = [...selectedAssets!, asset];
-            //   }
-            // }
             _popRoute(context, result: result);
           },
         ),
@@ -111,7 +113,7 @@ class DuBottomSheet {
                 selectedAssets: selectedAssets,
                 maxAssets: 1,
               );
-            } 
+            }
             // else if (pickType == PickType.camera) {
             //   final asset = await DuPicker.takeVideo(context);
             //   if (asset == null) {
@@ -145,11 +147,7 @@ class DuBottomSheet {
   InkWell _buildBtn(Widget child, {Function()? onTap}) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        height: 40,
-        child: child,
-      ),
+      child: Container(alignment: Alignment.center, height: 40, child: child),
     );
   }
 }

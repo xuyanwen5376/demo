@@ -18,7 +18,10 @@ class Privilege {
     var value = false;
     if (GetPlatform.isIOS) {
       var statuses = await [Permission.photos].request();
-      value = statuses[Permission.photos] == PermissionStatus.granted;
+      var status = statuses[Permission.photos];
+      value =
+          status == PermissionStatus.granted ||
+          status == PermissionStatus.limited;
     }
 
     // 在 Android 中， Permission.storage 权限与 Android READ_EXTERNAL_STORAGE 和 WRITE_EXTERNAL_STORAGE 权限相关联。
@@ -44,10 +47,14 @@ class Privilege {
   static Future<PrivilegeStatus> camera() async {
     var value = false;
     var permissions = <Permission>[];
-    permissions
-        .addAll([Permission.photos, Permission.camera, Permission.microphone]);
+    permissions.addAll([
+      Permission.photos,
+      Permission.camera,
+      Permission.microphone,
+    ]);
     var statuses = await permissions.request();
-    value = statuses[Permission.photos] == PermissionStatus.granted &&
+    value =
+        statuses[Permission.photos] == PermissionStatus.granted &&
         statuses[Permission.camera] == PermissionStatus.granted &&
         statuses[Permission.microphone] == PermissionStatus.granted;
     return PrivilegeStatus(
