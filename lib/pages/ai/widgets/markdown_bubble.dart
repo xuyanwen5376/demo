@@ -189,37 +189,37 @@ class MarkdownBubbleWidget extends StatelessWidget {
                       stateTick
                           ? const EdgeInsets.only(right: 20)
                           : EdgeInsets.zero,
-                  child: GestureDetector(
-                    onLongPress: () {
-                      Clipboard.setData(ClipboardData(text: text)).then((_) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('已复制到剪贴板'),
-                            duration: Duration(seconds: 1),
-                          ),
-                        );
-                      });
-                    },
+                    child: GestureDetector(
+                      onLongPress: () {
+                        Clipboard.setData(ClipboardData(text: text)).then((_) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('已复制到剪贴板'),
+                              duration: Duration(seconds: 1),
+                            ),
+                          );
+                        });
+                      },
                     child: MarkdownBody(
-                      data: processedText,
-                      styleSheet:
-                          markdownStyleSheet ??
-                          MarkdownStyleSheet.fromTheme(
-                            Theme.of(context),
-                          ).copyWith(
-                            p: textStyle,
-                            a: textStyle.copyWith(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline,
-                            ),
-                            code: textStyle.copyWith(
+                            data: processedText,
+                            styleSheet:
+                                markdownStyleSheet ??
+                                MarkdownStyleSheet.fromTheme(
+                                  Theme.of(context),
+                                ).copyWith(
+                                  p: textStyle,
+                                  a: textStyle.copyWith(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                  code: textStyle.copyWith(
                               backgroundColor: Colors.grey.withOpacity(0.2),
-                              fontFamily: 'monospace',
-                            ),
-                            codeblockDecoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.2),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
+                                    fontFamily: 'monospace',
+                                  ),
+                                  codeblockDecoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
                             blockquoteDecoration: BoxDecoration(
                               color: Colors.grey.shade100,
                               border: Border(
@@ -261,8 +261,8 @@ class MarkdownBubbleWidget extends StatelessWidget {
                               fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                             ),
-                          ),
-                      onTapLink: (text, href, title) {
+                                ),
+                            onTapLink: (text, href, title) {
                         if (href != null) {
                           try {
                             final uri = Uri.parse(href);

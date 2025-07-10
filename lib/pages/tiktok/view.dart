@@ -137,8 +137,29 @@ class _TiktokViewGetX extends GetView<TiktokController> {
                           TextWidget.label("8月14日 19:00", color: Colors.white),
                           SizedBox(height: 20),
                           TextWidget.label(
-                            "代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我时代变迁的洪流中，如何获得内心的平静？我的答案是成长",
+                            "代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我代变迁的洪流中，如何获得内心的平静？我的答案是成长",
                             color: Colors.white,
+                          ),
+                          // AI解读
+                          Obx(
+                            () => <Widget>[
+                              IconWidget.icon(
+                                controller.isSpeaking.value
+                                    ? Icons
+                                        .stop_circle // 正在播放时显示停止图标
+                                    : Icons.volume_up, // 未播放时显示播放图标
+                                color:
+                                    controller.isSpeaking.value
+                                        ? Colors
+                                            .lightBlueAccent // 播放时使用蓝色
+                                        : Colors.white, // 未播放时使用白色
+                                size: 24,
+                                onTap: () {
+                                  controller.onAiExplain();
+                                },
+                              ),
+                              TextWidget.muted('AI 解读', color: Colors.white),
+                            ].toRowSpace().paddingTop(10),
                           ),
                         ]
                         .toColumn(crossAxisAlignment: CrossAxisAlignment.start)

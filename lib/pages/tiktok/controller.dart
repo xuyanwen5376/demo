@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 enum MediaType { video, image }
 
@@ -34,6 +35,12 @@ class ReportViewItem {
 
 class TiktokController extends GetxController {
   TiktokController();
+
+  // TTS引擎
+  final FlutterTts flutterTts = FlutterTts();
+
+  // 是否正在播放语音
+  RxBool isSpeaking = false.obs;
 
   final List<MediaItem> mediaList = [
     MediaItem(
@@ -98,6 +105,50 @@ class TiktokController extends GetxController {
     ),
   ];
 
+  // 初始化TTS引擎
+  Future<void> _initTts() async {
+    await flutterTts.setLanguage("zh-CN");
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setSpeechRate(0.5);
+    await flutterTts.setPitch(1.0);
+
+    flutterTts.setCompletionHandler(() {
+      isSpeaking.value = false;
+      update(["tiktok"]);
+    });
+  }
+
+  // AI解读
+  Future<void> onAiExplain() async {
+    // 获取当前内容进行语音播报
+    String textToSpeak = "";
+
+    // 如果是快讯，使用快讯内容
+    if (isNews) {
+      if (currentIndex.value < mediaList.length) {
+        textToSpeak =
+            "这是第${currentIndex.value + 1}条快讯内容，请听好。一二三四五六七八九，九八七六五四三二一。";
+      }
+    }  
+
+    // 如果没有内容，使用默认内容
+    if (textToSpeak.isEmpty) {
+      textToSpeak = "一二三四五六七八九，九八七六五四三二一。";
+    }
+
+    // 如果正在播放，先停止
+    if (isSpeaking.value) {
+      await flutterTts.stop();
+      isSpeaking.value = false;
+    } else {
+      // 开始播放
+      isSpeaking.value = true;
+      await flutterTts.speak(textToSpeak);
+    }
+
+    update(["tiktok"]);
+  }
+
   _initData() {
     update(["tiktok"]);
   }
@@ -108,6 +159,7 @@ class TiktokController extends GetxController {
   void onInit() {
     super.onInit();
     onInitController(0);
+    _initTts();
   }
 
   void onInitController(int index) {
@@ -126,6 +178,12 @@ class TiktokController extends GetxController {
   void onPageChanged(int index) {
     // 暂停上一个视频
     controllers[currentIndex.value]?.pause();
+
+    // 如果正在播放语音，停止
+    if (isSpeaking.value) {
+      flutterTts.stop();
+      isSpeaking.value = false;
+    }
 
     currentIndex.value = index;
     onInitController(index);
@@ -154,6 +212,12 @@ class TiktokController extends GetxController {
 
   @override
   void onClose() {
+    // 停止语音播放
+    if (isSpeaking.value) {
+      flutterTts.stop();
+    }
+    flutterTts.stop();
+
     for (var controller in controllers.values) {
       try {
         controller.dispose();
