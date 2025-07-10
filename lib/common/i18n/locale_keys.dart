@@ -245,4 +245,10 @@ class LocaleKeys {
   // 8:群成员资料变更 (opMember 修改群成员资料：muteTime)
   static const chatGroupTipChangeMemberInfo =
       'chat_group_tip_change_member_info';
+
+
+  // 抖音
+  static const tiktokTitle = 'tiktok_title';
+  static const tiktokBtnNews = 'tiktok_btn_news';
+  static const tiktokBtnReport = 'tiktok_btn_report';
 }

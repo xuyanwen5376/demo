@@ -241,4 +241,8 @@ Map<String, String> localeEn = {
   LocaleKeys.chatGroupTipChangeInfo: 'change group info',
   LocaleKeys.chatGroupTipChangeMemberInfo: '@members change member info',
 
-};
+  // 抖音
+  LocaleKeys.tiktokTitle: 'TikTok',
+  LocaleKeys.tiktokBtnNews: 'News',
+  LocaleKeys.tiktokBtnReport: 'Report',
+ };

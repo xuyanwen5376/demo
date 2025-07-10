@@ -237,4 +237,9 @@ Map<String, String> localeZh = {
   LocaleKeys.chatGroupTipCancelAdmin: '@members 取消管理员',
   LocaleKeys.chatGroupTipChangeInfo: '群资料变更',
   LocaleKeys.chatGroupTipChangeMemberInfo: '@members 群成员资料变更',
+
+  // 抖音
+  LocaleKeys.tiktokTitle: '抖音',
+  LocaleKeys.tiktokBtnNews: '快讯',
+  LocaleKeys.tiktokBtnReport: '研报',
 };

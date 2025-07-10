@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'common/services/index.dart';
 import 'common/utils/index.dart';
- 
+
 class Global {
   static Future<void> init() async {
     // 插件初始化

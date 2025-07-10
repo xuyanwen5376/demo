@@ -111,10 +111,10 @@ class _ChatViewGetX extends GetView<ChatController> {
       <Widget>[
             // 昵称
             // if (isSelf == false && controller.isGroup == true)
-              TextWidget.body(
-                msg.sender ?? "昵称",
-                color: AppColors.onPrimaryContainer.withOpacity(0.5),
-              ).paddingHorizontal(10),
+            TextWidget.body(
+              msg.sender ?? "昵称",
+              color: AppColors.onPrimaryContainer.withOpacity(0.5),
+            ).paddingHorizontal(10),
 
             // 01: 文字消息
             if (msg.elemType == MessageElemType.V2TIM_ELEM_TYPE_TEXT)
@@ -177,15 +177,11 @@ class _ChatViewGetX extends GetView<ChatController> {
           // 底部聊天栏
           bottomNavigationBar: ChatBarWidget(
             key: controller.chatBarKey,
-            onTextSend: controller.onTextSend,   
-              // 发送语音
-            onSoundSend: (path, seconds) {
-              
-            }, 
+            onTextSend: controller.onTextSend,
+            // 发送语音
+            onSoundSend: (path, seconds) {},
             //   发送图片
-            onImageSend: (p0) {
-              
-            },
+            onImageSend: (p0) {},
           ),
         );
       },

@@ -141,12 +141,12 @@ class ChatBarWidgetState extends State<ChatBarWidget> {
     //     ).paddingRight(AppSpace.iconTextSmail).onTap(_onToggleMore),
     //   );
     // } else {
-      ws.add(
-        ButtonWidget.primary(
-          LocaleKeys.chatBarBtnSend.tr,
-          onTap: _onSendText,
-        ).constrained(height: 32, width: 60),
-      );
+    ws.add(
+      ButtonWidget.primary(
+        LocaleKeys.chatBarBtnSend.tr,
+        onTap: _onSendText,
+      ).constrained(height: 32, width: 60),
+    );
     // }
 
     return ws.toRow(crossAxisAlignment: CrossAxisAlignment.center);
@@ -193,18 +193,16 @@ class ChatBarWidgetState extends State<ChatBarWidget> {
       duration: const Duration(milliseconds: 100),
       padding: MediaQuery.of(context).viewInsets,
       color: AppColors.surface,
-      child:
-          <Widget>[
-                _buildBar(),
-                if (_isShowEmoji) _buildEmojiList(),
-                if (_isShowMore) _buildMoreList(),
-              ]
-              .toColumn(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-              )
-              .padding(all: AppSpace.bottomView)
-              .safeArea(),
+      child: <Widget>[
+            _buildBar(),
+            if (_isShowEmoji) _buildEmojiList(),
+            if (_isShowMore) _buildMoreList(),
+          ]
+          .toColumn(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+          )
+          .padding(all: AppSpace.bottomView),
     );
   }
 
@@ -271,6 +269,28 @@ class ChatBarWidgetState extends State<ChatBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return _mainView();
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 5,
+            offset: const Offset(0, -1),
+          ),
+        ],
+      ),
+      padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+      child: <Widget>[
+            _buildBar(),
+            if (_isShowEmoji) _buildEmojiList(),
+            if (_isShowMore) _buildMoreList(),
+          ]
+          .toColumn(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+          )
+          .padding(all: AppSpace.bottomView),
+    );
   }
 }

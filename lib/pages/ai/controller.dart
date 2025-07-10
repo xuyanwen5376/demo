@@ -279,6 +279,14 @@ class AiController extends GetxController {
     _initData();
   }
 
+  @override
+  void onClose() {
+    super.onClose();
+    // 下去键盘
+    onCloseChatBar();
+    inputController.dispose();
+  }
+
   // 检查消息是否已经显示
   bool _isMessageAlreadyDisplayed(String answer) {
     // 如果答案为空，不需要显示

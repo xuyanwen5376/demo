@@ -125,7 +125,7 @@ class _AiViewGetX extends GetView<AiController> {
               MarkdownBubbleWidget(
                 text: msg.textElem!.text!,
                 isSender: isSelf,
-                color: isSelf == true ? Colors.grey.shade200 : Colors.white,
+                color: isSelf == true ? Colors.white : Colors.white,
                 textStyle:
                     isSelf == true
                         ? TextStyle(color: Colors.grey.shade800, fontSize: 16)
@@ -173,34 +173,51 @@ class _AiViewGetX extends GetView<AiController> {
 
   // 主视图
   Widget _buildView(BuildContext context) {
-    return CustomScrollView(
-      controller: controller.scrollController,
-      physics: AlwaysScrollableScrollPhysics(),
-      slivers: [
-        const SizedBox(height: 40).sliverToBoxAdapter(),
-        // 头像
-        _buildAvatar(context).sliverToBoxAdapter(),
+    // 计算输入框高度（基本高度 + 底部安全区域）
+    final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final inputBarHeight = 60.0 + bottomPadding; // 估计的输入框高度
 
-        const SizedBox(height: 24).sliverToBoxAdapter(),
+    return Stack(
+      children: [
+        CustomScrollView(
+          controller: controller.scrollController,
+          physics: AlwaysScrollableScrollPhysics(),
+          slivers: [
+            const SizedBox(height: 40).sliverToBoxAdapter(),
+            // 头像
+            _buildAvatar(context).sliverToBoxAdapter(),
 
-        // 欢迎语
-        _buildWelcome(context).sliverToBoxAdapter(),
+            const SizedBox(height: 24).sliverToBoxAdapter(),
 
-        const SizedBox(height: 32).sliverToBoxAdapter(),
-        // 推荐问题
-        _buildRecommendQuestions(context).sliverToBoxAdapter(),
+            // 欢迎语
+            _buildWelcome(context).sliverToBoxAdapter(),
 
-        const SizedBox(height: 32).sliverToBoxAdapter(),
+            const SizedBox(height: 32).sliverToBoxAdapter(),
+            // 推荐问题
+            _buildRecommendQuestions(context).sliverToBoxAdapter(),
 
-        // AI流式消息打印区
-        // _buildAiAnswer(context).sliverToBoxAdapter(),
+            const SizedBox(height: 32).sliverToBoxAdapter(),
 
-        /// 消息列表
-        _buildMsgList(),
+            /// 消息列表
+            _buildMsgList(),
 
-        const SizedBox(height: 80).sliverToBoxAdapter(),
+            // 底部填充，防止内容被输入框遮挡
+            SizedBox(height: inputBarHeight).sliverToBoxAdapter(),
+          ],
+        ),
 
-        // _buildAiAnswer(context).sliverToBoxAdapter(),
+        // 底部输入框
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 0,
+          child: ChatBarWidget(
+            key: controller.chatBarKey,
+            onTextSend: controller.onTextSend,
+            onSoundSend: (path, seconds) {},
+            onImageSend: (p0) {},
+          ),
+        ),
       ],
     );
   }
@@ -220,16 +237,7 @@ class _AiViewGetX extends GetView<AiController> {
           ),
           backgroundColor: const Color(0xFFF7F7FB),
           body: SafeArea(child: _buildView(context)),
-
-          // 底部聊天栏
-          bottomNavigationBar: ChatBarWidget(
-            key: controller.chatBarKey,
-            onTextSend: controller.onTextSend,
-            // 发送语音
-            onSoundSend: (path, seconds) {},
-            //   发送图片
-            onImageSend: (p0) {},
-          ),
+          // resizeToAvoidBottomInset: true, // 确保键盘弹出时内容会移动
         );
       },
     );

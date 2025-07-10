@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -7,6 +8,28 @@ class MediaItem {
   final String url;
   final MediaType type;
   MediaItem({required this.url, required this.type});
+}
+
+// 研报 item
+class ReportViewItem {
+  final String url;
+  final String title;
+  final String desc;
+  final String date;
+  final String readCount;
+  final String likeCount;
+  final String commentCount;
+  final String shareCount;
+  ReportViewItem({
+    required this.url,
+    required this.title,
+    required this.desc,
+    required this.date,
+    required this.readCount,
+    required this.likeCount,
+    required this.commentCount,
+    required this.shareCount,
+  });
 }
 
 class TiktokController extends GetxController {
@@ -36,6 +59,44 @@ class TiktokController extends GetxController {
   final RxInt currentIndex = 0.obs;
 
   final Map<int, VideoPlayerController> controllers = {};
+
+  // 是否是 快讯 ,默认是快讯
+  bool isNews = true;
+
+  // 研报列表
+  final List<ReportViewItem> reportList = [
+    ReportViewItem(
+      url: 'https://www.w3schools.com/w3images/lights.jpg',
+      title: '标题',
+      desc: '描述描述描 描述描述 描述描述描述描述描述  阿达 VS对方水电费水电费描述描述',
+      date: '2021-01-01',
+      readCount: '100',
+      likeCount: '100',
+      commentCount: '100',
+      shareCount: '100',
+    ),
+    ReportViewItem(
+      url: 'https://www.w3schools.com/w3images/lights.jpg',
+      title: '标题',
+      desc: '描述描述 描述描述描述描 述描述描述描述描述描述描述描述描描述描述描述描述描述描述描述描',
+      date: '2021-01-01',
+      readCount: '100',
+      likeCount: '100',
+      commentCount: '100',
+      shareCount: '100',
+    ),
+    ReportViewItem(
+      url: 'https://www.w3schools.com/w3images/lights.jpg',
+      title: '标题',
+      desc:
+          '描述描述描述描述描述描述描述描述描述描述描述描描述描述描述描述描述描述描述描描述描述描述描述描述描述描述描述描述描述描述描描述描述描述描述描述描述描述描',
+      date: '2021-01-01',
+      readCount: '100',
+      likeCount: '100',
+      commentCount: '100',
+      shareCount: '100',
+    ),
+  ];
 
   _initData() {
     update(["tiktok"]);
@@ -69,6 +130,19 @@ class TiktokController extends GetxController {
     currentIndex.value = index;
     onInitController(index);
     controllers[index]?.play();
+    update(["tiktok"]);
+  }
+
+  // 切换快讯 研报
+  void onSwitchNews(String type) {
+    // 切换快讯 研报
+    if (type == "news") {
+      // 切换快讯
+      isNews = true;
+    } else {
+      // 切换研报
+      isNews = false;
+    }
     update(["tiktok"]);
   }
 

@@ -26,7 +26,7 @@ class AiService {
     {
       "appId": "796dd006e324kd97df86f8sg07343",
       "conversationId": "eea98fc6-3fea-4855-a0fb-84953d8e6311",
-      "inputs": {"user_model": "deepseek", "user_network": "IsNetWork"},
+      "inputs": {"user_model": "deepseek", "user_network": "NotNetWork"},
       "query": query,
       "userId": "bc0606fb6f9141718a18e67ae2353519",
       "userName": "谭维敏",

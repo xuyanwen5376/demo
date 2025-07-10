@@ -2,8 +2,7 @@ import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
-import 'package:weichat_test/common/style/space.dart';
-import 'package:weichat_test/common/widgets/text.dart';
+import '../../common/index.dart';
 import 'index.dart';
 
 class TiktokPage extends StatefulWidget {
@@ -28,7 +27,7 @@ class _TiktokPageState extends State<TiktokPage>
 class _TiktokViewGetX extends GetView<TiktokController> {
   _TiktokViewGetX({Key? key}) : super(key: key);
 
-  // 主视图
+  // 快讯
   Widget _buildView() {
     return PageView.builder(
       scrollDirection: Axis.vertical,
@@ -109,7 +108,10 @@ class _TiktokViewGetX extends GetView<TiktokController> {
               child:
                   <Widget>[
                     // 收藏
-                    Icon(Icons.bookmark_border, color: Colors.white),
+                    Icon(
+                      Icons.bookmark_border,
+                      color: const Color.fromARGB(255, 237, 168, 168),
+                    ),
                     SizedBox(height: 12),
                     // 转发
                     Icon(Icons.share, color: Colors.white),
@@ -150,6 +152,103 @@ class _TiktokViewGetX extends GetView<TiktokController> {
     );
   }
 
+  // 研报
+  Widget _buildReportView() {
+    return ListView.separated(
+      padding: EdgeInsets.symmetric(
+        horizontal: 16,
+      ), // Add horizontal padding here
+      itemCount: controller.reportList.length,
+      separatorBuilder: (context, index) {
+        return SizedBox(height: 10);
+      },
+      itemBuilder: (context, index) {
+        return _buildReportItem(controller.reportList[index]);
+      },
+    );
+  }
+
+  // 研报item
+  Widget _buildReportItem(ReportViewItem item) {
+    return Container(
+      color: Colors.white,
+      child: <Widget>[
+            ImageWidget.img(item.url, fit: BoxFit.cover)
+                .paddingAll(AppSpace.listItem)
+                .tight(width: double.infinity, height: 200),
+            <Widget>[TextWidget.h4(item.title), TextWidget.muted(item.date)]
+                .toRow(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                )
+                .paddingHorizontal(AppSpace.listItem),
+
+            <Widget>[
+                  TextWidget.label(item.desc),
+                  SizedBox(height: 10),
+                  TextWidget.muted('阅读数：' + item.readCount),
+                ]
+                .toColumn(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                )
+                .paddingHorizontal(AppSpace.listItem),
+          ]
+          .toColumn(crossAxisAlignment: CrossAxisAlignment.start)
+          .paddingAll(8)
+          .elevation(
+            AppElevation.listTile,
+            borderRadius: BorderRadius.circular(AppRadius.listTile),
+            shadowColor: Colors.grey.withOpacity(0.1),
+          ),
+    );
+  }
+
+  // 顶部按钮
+  Widget _buildTopButtons() {
+    return Container(
+      // 背景半透明
+      color: Colors.transparent.withOpacity(0.2),
+      height: 120,
+      child: <Widget>[
+            // 快讯
+            ButtonWidget.ghost(
+              // 背景透明
+              backgroundColor: Colors.transparent,
+              LocaleKeys.tiktokBtnNews.tr,
+              textColor: controller.isNews ? Colors.white : Colors.grey,
+              textWeight: FontWeight.w700,
+              scale: WidgetScale.large,
+              onTap: () {
+                controller.onSwitchNews("news");
+              },
+            ).expanded(),
+
+            // 间距
+            SizedBox(width: AppSpace.iconTextLarge),
+
+            // 研报
+            ButtonWidget.ghost(
+              backgroundColor: Colors.transparent,
+              LocaleKeys.tiktokBtnReport.tr,
+              textColor: !controller.isNews ? Colors.white : Colors.grey,
+              textWeight: FontWeight.w700,
+              scale: WidgetScale.large,
+              onTap: () {
+                controller.onSwitchNews("report");
+              },
+            ).expanded(),
+          ]
+          .toRow(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          )
+          .paddingTop(50)
+          .paddingHorizontal(AppSpace.page)
+          .paddingVertical(AppSpace.page),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<TiktokController>(
@@ -160,7 +259,17 @@ class _TiktokViewGetX extends GetView<TiktokController> {
           body: SafeArea(
             top: false, // 关键
             bottom: true,
-            child: _buildView(),
+            child: Stack(
+              children: [
+                if (controller.isNews) _buildView() else _buildReportView(),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: _buildTopButtons(),
+                ),
+              ],
+            ),
           ),
         );
       },

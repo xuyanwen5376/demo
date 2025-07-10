@@ -20,6 +20,8 @@ class MainController extends GetxController {
 
   // 切换页面
   void onJumpToPage(int page) {
+    // 下去键盘
+    FocusScope.of(Get.context!).unfocus();
     pageController.jumpToPage(page);
   }
 
@@ -51,8 +53,6 @@ class MainController extends GetxController {
   /// 初始化数据
   _initData() async {
     // 读取用户 profile
-
-    await UserService.to.getProfile(); 
 
     // IM 登录
     // IMService.to.login();
