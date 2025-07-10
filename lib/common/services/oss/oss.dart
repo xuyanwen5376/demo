@@ -62,15 +62,13 @@ class ClientSeivice extends GetxService {
 
     var dio = Dio(options);
 
-    var res = await dio.get(Constants.stsUrl);
-    print('STS接口返回数据: ${res.data}');
+    var res = await dio.get(Constants.stsUrl); 
     final data = res.data;
     if (data is Map &&
         data['success'] == true &&
         data['dataList'] is List &&
         data['dataList'].isNotEmpty) {
-      final reslut = data['dataList'][0] ?? {};
-      print('STS接口返回第一个元素: $reslut');
+      final reslut = data['dataList'][0] ?? {}; 
       _accessKeyId = reslut['accessKeyId'] ?? '';
       _accessKeySecret = reslut['accessKeySecret'] ?? '';
       _stsToken = reslut['stsToken'] ?? '';

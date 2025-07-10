@@ -46,4 +46,6 @@ class RouteNames {
   static const chatChat = '/chat_chat';
   static const post = '/post';
   static const dynamic = '/dynamic';
+  static const  ai = '/ai'; 
+  static const  tiktok = '/tiktok';
 }

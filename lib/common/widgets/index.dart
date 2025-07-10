@@ -15,6 +15,7 @@ export 'initials.dart';
 export 'avatar.dart';
 export 'divider.dart';
 export 'bubble.dart';
+export '../../pages/ai/widgets/markdown_bubble.dart';
 export 'space.dart';
 export 'text_max_lines.dart';
 export 'extensions.dart';

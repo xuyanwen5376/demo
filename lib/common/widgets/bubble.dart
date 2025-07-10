@@ -28,10 +28,7 @@ class BubbleWidget extends StatelessWidget {
     this.sent = false,
     this.delivered = false,
     this.seen = false,
-    this.textStyle = const TextStyle(
-      color: Colors.black87,
-      fontSize: 16,
-    ),
+    this.textStyle = const TextStyle(color: Colors.black87, fontSize: 16),
   }) : super(key: key);
 
   ///chat bubble builder method
@@ -41,11 +38,7 @@ class BubbleWidget extends StatelessWidget {
     Icon? stateIcon;
     if (sent) {
       stateTick = true;
-      stateIcon = const Icon(
-        Icons.done,
-        size: 18,
-        color: Color(0xFF97AD8E),
-      );
+      stateIcon = const Icon(Icons.done, size: 18, color: Colors.black);
     }
     if (delivered) {
       stateTick = true;
@@ -70,24 +63,30 @@ class BubbleWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         child: CustomPaint(
           painter: SpecialChatBubbleOne(
-              color: color,
-              alignment: isSender ? Alignment.topRight : Alignment.topLeft,
-              tail: tail),
+            color: color,
+            alignment: isSender ? Alignment.topRight : Alignment.topLeft,
+            tail: tail,
+          ),
           child: Container(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * .7,
             ),
-            margin: isSender
-                ? stateTick
-                    ? const EdgeInsets.fromLTRB(7, 7, 14, 7)
-                    : const EdgeInsets.fromLTRB(7, 7, 17, 7)
-                : const EdgeInsets.fromLTRB(17, 7, 7, 7),
+            margin:
+                isSender
+                    ? stateTick
+                        ? const EdgeInsets.fromLTRB(7, 7, 14, 7)
+                        : const EdgeInsets.fromLTRB(7, 7, 17, 7)
+                    : const EdgeInsets.fromLTRB(17, 7, 7, 7),
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: stateTick
-                      ? const EdgeInsets.only(right: 20)
-                      : const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                  padding:
+                      stateTick
+                          ? const EdgeInsets.only(right: 20)
+                          : const EdgeInsets.symmetric(
+                            vertical: 0,
+                            horizontal: 0,
+                          ),
                   child: Text(
                     text,
                     style: textStyle,
@@ -95,14 +94,8 @@ class BubbleWidget extends StatelessWidget {
                   ),
                 ),
                 stateIcon != null && stateTick
-                    ? Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: stateIcon,
-                      )
-                    : const SizedBox(
-                        width: 1,
-                      ),
+                    ? Positioned(bottom: 0, right: 0, child: stateIcon)
+                    : const SizedBox(width: 1),
               ],
             ),
           ),
@@ -135,96 +128,102 @@ class SpecialChatBubbleOne extends CustomPainter {
     if (alignment == Alignment.topRight) {
       if (tail) {
         canvas.drawRRect(
-            RRect.fromLTRBAndCorners(
-              0,
-              0,
-              size.width - _x,
-              size.height,
-              bottomLeft: Radius.circular(_radius),
-              bottomRight: Radius.circular(_radius),
-              topLeft: Radius.circular(_radius),
-            ),
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.fill);
+          RRect.fromLTRBAndCorners(
+            0,
+            0,
+            size.width - _x,
+            size.height,
+            bottomLeft: Radius.circular(_radius),
+            bottomRight: Radius.circular(_radius),
+            topLeft: Radius.circular(_radius),
+          ),
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill,
+        );
         var path = Path();
         path.moveTo(size.width - _x, 0);
         path.lineTo(size.width - _x, 10);
         path.lineTo(size.width, 0);
         canvas.clipPath(path);
         canvas.drawRRect(
-            RRect.fromLTRBAndCorners(
-              size.width - _x,
-              0.0,
-              size.width,
-              size.height,
-              topRight: const Radius.circular(3),
-            ),
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.fill);
+          RRect.fromLTRBAndCorners(
+            size.width - _x,
+            0.0,
+            size.width,
+            size.height,
+            topRight: const Radius.circular(3),
+          ),
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill,
+        );
       } else {
         canvas.drawRRect(
-            RRect.fromLTRBAndCorners(
-              0,
-              0,
-              size.width - _x,
-              size.height,
-              bottomLeft: Radius.circular(_radius),
-              bottomRight: Radius.circular(_radius),
-              topLeft: Radius.circular(_radius),
-              topRight: Radius.circular(_radius),
-            ),
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.fill);
+          RRect.fromLTRBAndCorners(
+            0,
+            0,
+            size.width - _x,
+            size.height,
+            bottomLeft: Radius.circular(_radius),
+            bottomRight: Radius.circular(_radius),
+            topLeft: Radius.circular(_radius),
+            topRight: Radius.circular(_radius),
+          ),
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill,
+        );
       }
     } else {
       if (tail) {
         canvas.drawRRect(
-            RRect.fromLTRBAndCorners(
-              _x,
-              0,
-              size.width,
-              size.height,
-              bottomRight: Radius.circular(_radius),
-              topRight: Radius.circular(_radius),
-              bottomLeft: Radius.circular(_radius),
-            ),
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.fill);
+          RRect.fromLTRBAndCorners(
+            _x,
+            0,
+            size.width,
+            size.height,
+            bottomRight: Radius.circular(_radius),
+            topRight: Radius.circular(_radius),
+            bottomLeft: Radius.circular(_radius),
+          ),
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill,
+        );
         var path = Path();
         path.moveTo(_x, 0);
         path.lineTo(_x, 10);
         path.lineTo(0, 0);
         canvas.clipPath(path);
         canvas.drawRRect(
-            RRect.fromLTRBAndCorners(
-              0,
-              0.0,
-              _x,
-              size.height,
-              topLeft: const Radius.circular(3),
-            ),
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.fill);
+          RRect.fromLTRBAndCorners(
+            0,
+            0.0,
+            _x,
+            size.height,
+            topLeft: const Radius.circular(3),
+          ),
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill,
+        );
       } else {
         canvas.drawRRect(
-            RRect.fromLTRBAndCorners(
-              _x,
-              0,
-              size.width,
-              size.height,
-              bottomRight: Radius.circular(_radius),
-              topRight: Radius.circular(_radius),
-              bottomLeft: Radius.circular(_radius),
-              topLeft: Radius.circular(_radius),
-            ),
-            Paint()
-              ..color = color
-              ..style = PaintingStyle.fill);
+          RRect.fromLTRBAndCorners(
+            _x,
+            0,
+            size.width,
+            size.height,
+            bottomRight: Radius.circular(_radius),
+            topRight: Radius.circular(_radius),
+            bottomLeft: Radius.circular(_radius),
+            topLeft: Radius.circular(_radius),
+          ),
+          Paint()
+            ..color = color
+            ..style = PaintingStyle.fill,
+        );
       }
     }
   }

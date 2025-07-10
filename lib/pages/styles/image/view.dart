@@ -27,6 +27,7 @@ class ImagePage extends GetView<ImageController> {
       ImageWidget.img(
         imgUrl,
         fit: BoxFit.cover,
+        radius:14,
       ).tight(width: width, height: 200),
 
       // 本地 svg

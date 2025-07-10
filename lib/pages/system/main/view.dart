@@ -56,24 +56,26 @@ class _MainViewGetX extends GetView<MainController> {
             return BuildNavigation(
               currentIndex: controller.currentIndex,
               items: [
+                NavigationItemModel(label: '首页', icon: AssetsSvgs.navHomeSvg),
                 NavigationItemModel(
-                  label: LocaleKeys.tabBarHome.tr,
-                  icon: AssetsSvgs.navHomeSvg,
-                ),
-                NavigationItemModel(
-                  label: LocaleKeys.tabBarCart.tr,
+                  label: '博商AI',
                   icon: AssetsSvgs.navCartSvg,
                   count: CartService.to.lineItemsCount,
                 ),
-                NavigationItemModel(
-                  label: '动态',
-                  icon: AssetsSvgs.navProfileSvg,
-                ),
-                NavigationItemModel(
-                  label: LocaleKeys.tabBarMessage.tr,
-                  icon: AssetsSvgs.navMessageSvg,
-                  count: 9 //UnreadCount.value,
-                ),
+                // NavigationItemModel(
+                //   label: LocaleKeys.tabBarCart.tr,
+                //   icon: AssetsSvgs.navCartSvg,
+                //   count: CartService.to.lineItemsCount,
+                // ),
+                // NavigationItemModel(
+                //   label: '动态',
+                //   icon: AssetsSvgs.navProfileSvg,
+                // ),
+                // NavigationItemModel(
+                //   label: LocaleKeys.tabBarMessage.tr,
+                //   icon: AssetsSvgs.navMessageSvg,
+                //   count: 9 //UnreadCount.value,
+                // ),
                 NavigationItemModel(
                   label: LocaleKeys.tabBarProfile.tr,
                   icon: AssetsSvgs.navProfileSvg,
@@ -85,16 +87,18 @@ class _MainViewGetX extends GetView<MainController> {
         ),
         // 内容页
         body: PageView(
-           /// 禁止滑动
+          /// 禁止滑动
           physics: const NeverScrollableScrollPhysics(),
           controller: controller.pageController,
           onPageChanged: controller.onIndexChanged,
           children: const [
             // 加入空页面占位
-            HomePage(),
-            CartIndexPage(),
-            DynamicPage(),
-            MsgIndexPage(),
+            // HomePage(),
+            TiktokPage(),
+            AiPage(),
+            // CartIndexPage(),
+            // DynamicPage(),
+            // MsgIndexPage(),
             MyIndexPage(),
           ],
         ),

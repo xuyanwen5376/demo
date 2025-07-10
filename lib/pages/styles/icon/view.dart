@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,6 +19,7 @@ class IconPage extends GetView<IconController> {
         isDot: true,
       ).paddingBottom(20),
 
+      const DividerWidget(size: 6),
       // svg
       const TextWidget.label("svg + badge 99"),
       const IconWidget.svg(
@@ -28,14 +28,18 @@ class IconPage extends GetView<IconController> {
         badgeString: "99+",
       ).paddingBottom(20),
 
+      const DividerWidget(size: 6),
       // png
       const TextWidget.label("png + 文字 + 左右"),
       const IconWidget.img(
         AssetsImages.pVisaPng,
         text: "命令调试",
         size: 24,
+        isExpanded: false,
+        // isVertical: true,
       ).paddingBottom(20),
 
+      const DividerWidget(size: 6),
       // png
       const TextWidget.label("png + 文字 + 多行"),
       const IconWidget.img(
@@ -44,8 +48,9 @@ class IconPage extends GetView<IconController> {
             "命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试命令调试",
         size: 24,
         isExpanded: true,
-      ).width(200).paddingBottom(20),
+      ).width(200).paddingBottom(20).alignLeft(),
 
+      const DividerWidget(size: 6),
       // png
       const TextWidget.label("svg + 文字 + 上下"),
       const IconWidget.svg(
@@ -53,13 +58,11 @@ class IconPage extends GetView<IconController> {
         text: "计算器",
         size: 24,
         isVertical: true,
-      ).paddingBottom(20),
+      ).paddingBottom(20).alignRight().alignTop().paddingRight(10),
 
       //
     ].toColumnSpace().center().scrollable();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +72,7 @@ class IconPage extends GetView<IconController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("icon")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

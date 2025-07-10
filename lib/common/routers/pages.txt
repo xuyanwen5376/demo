@@ -1,5 +1,9 @@
 
       GetPage(
+        name: RouteNames.ai,
+        page: () => const AiPage(),
+      ),
+      GetPage(
         name: RouteNames.cartApplyPromoCode,
         page: () => const ApplyPromoCodePage(),
       ),
@@ -22,6 +26,10 @@
       GetPage(
         name: RouteNames.chatChatFindUser,
         page: () => const ChatFindUserPage(),
+      ),
+      GetPage(
+        name: RouteNames.dynamic,
+        page: () => const DynamicPage(),
       ),
       GetPage(
         name: RouteNames.goodsCategory,
@@ -74,6 +82,10 @@
       GetPage(
         name: RouteNames.myTheme,
         page: () => const ThemePage(),
+      ),
+      GetPage(
+        name: RouteNames.post,
+        page: () => const PostPage(),
       ),
       GetPage(
         name: RouteNames.searchSearchFilter,
@@ -182,4 +194,8 @@
       GetPage(
         name: RouteNames.systemWelcome,
         page: () => const WelcomePage(),
+      ),
+      GetPage(
+        name: RouteNames.tiktok,
+        page: () => const TiktokPage(),
       ),

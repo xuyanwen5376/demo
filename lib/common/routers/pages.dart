@@ -103,5 +103,7 @@ class RoutePages {
     GetPage(name: RouteNames.chatChat, page: () => const ChatPage()),
     GetPage(name: RouteNames.post, page: () => const PostPage()),
     GetPage(name: RouteNames.dynamic, page: () => const DynamicPage()),
+    GetPage(name: RouteNames.ai, page: () => const AiPage()),
+    GetPage(name: RouteNames.tiktok, page: () => const TiktokPage()), 
   ];
 }

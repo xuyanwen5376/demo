@@ -46,3 +46,5 @@ export 'chat/chat_find_user/index.dart';
 export 'chat/chat/index.dart';
 export 'post/index.dart';
 export 'dynamic/index.dart';
+export 'ai/index.dart';
+export 'tiktok/index.dart';
