@@ -43,6 +43,7 @@ Map<String, String> localeEn = {
   LocaleKeys.loginForgotPassword: 'Forgot Password?',
   LocaleKeys.loginSignIn: 'Sign In',
   LocaleKeys.loginSignUp: 'Sign Up',
+  LocaleKeys.loginOut: 'Sign Out',
   LocaleKeys.loginOrText: '- OR -',
 
   // 注册 - new user
@@ -70,9 +71,11 @@ Map<String, String> localeEn = {
 
   // APP 导航
   LocaleKeys.tabBarHome: 'Home',
+  LocaleKeys.tabBarAI: 'AI',
+  LocaleKeys.tabBarProfile: 'Profile',
   LocaleKeys.tabBarCart: 'Cart',
   LocaleKeys.tabBarMessage: 'Message',
-  LocaleKeys.tabBarProfile: 'Profile',
+  
 
   // 商品 - 首页
   LocaleKeys.gHomeSearch: 'Search Product',
@@ -122,7 +125,18 @@ Map<String, String> localeEn = {
   LocaleKeys.myBtnLogout: 'Logout',
   LocaleKeys.myBtnStyles: 'Styles',
   LocaleKeys.myBtnBillingAddress: 'Billing address',
-  LocaleKeys.myBtnShippingAddress: 'Shipping address',
+  LocaleKeys.myBtnShippingAddress: 'Shipping address', 
+  LocaleKeys.myTabNews: 'News Collection',
+  LocaleKeys.myTabReport: 'Report Collection',
+  LocaleKeys.myTabQuote: 'Quote Collection',
+  // 我的 - 个人信息
+  LocaleKeys.myInfoTitle: 'My Info',  
+  // 我的 - 历史记录
+  LocaleKeys.myHistoryTitle: 'History Records',
+  // 我的 - 语音风格
+  LocaleKeys.myVoiceStyleTitle: 'Voice Style',
+  // 我的 - 测评结果
+  LocaleKeys.myTestResultTitle: 'Test Result', 
 
   // 订单配送地址
   LocaleKeys.addressViewTitle: '@type address',

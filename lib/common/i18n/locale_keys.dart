@@ -38,6 +38,8 @@ class LocaleKeys {
   static const loginSignIn = 'login_sign_in';
   static const loginOrText = 'login_or_text';
   static const loginSignUp = 'login_sign_up';
+  static const loginOut = 'login_out';
+  
 
   // 注册 - register user
   static const registerTitle = 'register_title';
@@ -64,6 +66,8 @@ class LocaleKeys {
 
   // APP 主导航
   static const tabBarHome = 'tab_bar_home';
+  static const tabBarAI = 'tab_bar_ai';
+
   static const tabBarCart = 'tab_bar_cart';
   static const tabBarMessage = 'tab_bar_message';
   static const tabBarProfile = 'tab_bar_profile';
@@ -118,6 +122,20 @@ class LocaleKeys {
   static const myBtnLogout = "my_btn_logout";
   static const myBtnBillingAddress = "my_btn_billing_address";
   static const myBtnShippingAddress = "my_btn_shipping_address";
+ 
+  static const myTabNews = "my_tab_news"; 
+  static const myTabReport = "my_tab_report"; 
+  static const myTabQuote = "my_tab_quote";
+
+// 个人信息   
+  static const myInfoTitle = "my_info_title";
+// 历史记录
+  static const myHistoryTitle = "my_history_title"; 
+// 语音风格
+  static const myVoiceStyleTitle = "my_voice_style_title"; 
+// 测评结果
+  static const myTestResultTitle = "my_test_result_title";
+
 
   // 订单配送地址
   static const addressViewTitle = "address_view_title";

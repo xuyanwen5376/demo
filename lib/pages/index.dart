@@ -48,3 +48,5 @@ export 'post/index.dart';
 export 'dynamic/index.dart';
 export 'ai/index.dart';
 export 'tiktok/index.dart';
+export 'mine/index.dart';
+export 'persontest/index.dart';

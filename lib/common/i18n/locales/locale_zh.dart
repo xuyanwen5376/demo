@@ -1,4 +1,4 @@
-  import '../locale_keys.dart';
+import '../locale_keys.dart';
 
 /// 多语言 中文
 Map<String, String> localeZh = {
@@ -42,6 +42,7 @@ Map<String, String> localeZh = {
   LocaleKeys.loginForgotPassword: '忘记密码?',
   LocaleKeys.loginSignIn: '登 陆',
   LocaleKeys.loginSignUp: '注 册',
+  LocaleKeys.loginOut: '退出登陆',
   LocaleKeys.loginOrText: '- 或者 -',
 
   // 注册 - register user
@@ -69,9 +70,10 @@ Map<String, String> localeZh = {
 
   // APP 导航
   LocaleKeys.tabBarHome: '首页',
+  LocaleKeys.tabBarAI: '博商AI',
+  LocaleKeys.tabBarProfile: '我',
   LocaleKeys.tabBarCart: '购物车',
   LocaleKeys.tabBarMessage: '消息',
-  LocaleKeys.tabBarProfile: '我的',
 
   // 商品 - 首页
   LocaleKeys.gHomeSearch: '搜索商品',
@@ -106,6 +108,7 @@ Map<String, String> localeZh = {
   LocaleKeys.searchFilterGender: '性别',
   LocaleKeys.searchFilterCondition: '状况',
   LocaleKeys.searchFilterStars: '星级',
+
   // 我的
   LocaleKeys.myTabWishlist: '喜欢',
   LocaleKeys.myTabFollowing: '关注',
@@ -122,7 +125,15 @@ Map<String, String> localeZh = {
   LocaleKeys.myBtnLogout: '注销',
   LocaleKeys.myBtnBillingAddress: '发票地址',
   LocaleKeys.myBtnShippingAddress: '配送地址',
+  LocaleKeys.myTabNews: '快讯收藏',
+  LocaleKeys.myTabReport: '研报收藏',
+  LocaleKeys.myTabQuote: '金句收藏',
 
+  LocaleKeys.myInfoTitle: '个人信息',
+  LocaleKeys.myHistoryTitle: '历史记录',
+  LocaleKeys.myVoiceStyleTitle: '语音风格',
+  LocaleKeys.myTestResultTitle: '测评结果', 
+  
   // 订单配送地址
   LocaleKeys.addressViewTitle: '@type 地址',
   LocaleKeys.addressFirstName: '姓',

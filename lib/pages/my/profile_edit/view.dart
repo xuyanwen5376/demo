@@ -16,23 +16,25 @@ class ProfileEditPage extends GetView<ProfileEditController> {
       child: <Widget>[
         // 头像
         _buildAvatar(context),
+        // 昵称
+        _buildNickname(context),
 
-        // 表单
-        Form(
-          key: controller.formKey, //设置globalKey，用于后面获取FormState
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          child:
-              <Widget>[
-                // profile 表单
-                _buildProfileForm(context),
-                // password 表单
-                _buildPasswordForm(context),
-              ].toColumn(),
-        ).paddingBottom(AppSpace.card),
+        // // 表单
+        // Form(
+        //   key: controller.formKey, //设置globalKey，用于后面获取FormState
+        //   autovalidateMode: AutovalidateMode.onUserInteraction,
+        //   child:
+        //       <Widget>[
+        //         // profile 表单
+        //         _buildProfileForm(context),
+        //         // password 表单
+        //         _buildPasswordForm(context),
+        //       ].toColumn(),
+        // ).paddingBottom(AppSpace.card),
 
-        // 保存按钮
+        // 退出登录
         ButtonWidget.primary(
-          LocaleKeys.commonBottomSave.tr,
+          LocaleKeys.loginOut.tr,
           onTap: controller.onSave,
         ).width(double.infinity),
       ].toColumn().paddingAll(AppSpace.card),
@@ -71,55 +73,73 @@ class ProfileEditPage extends GetView<ProfileEditController> {
         .paddingBottom(AppSpace.card);
   }
 
+  // 昵称
+  Widget _buildNickname(BuildContext context) {
+    return <Widget>[
+      TextWidget(text: "名字").paddingRight(AppSpace.appbar),
+      InputWidget(
+        placeholder: "请输入姓名",
+        cleanable: true,
+        suffix: IconWidget.icon(Icons.edit),
+      ).expanded(),
+    ].toRow().paddingTop(AppSpace.appbar).paddingBottom(AppSpace.appbar);
+  }
+
   //  profile 表单
   Widget _buildProfileForm(BuildContext context) {
     return <Widget>[
-      // first name
-      InputFormFieldWidget(
-        controller: controller.firstNameController,
-        labelText: LocaleKeys.profileEditFirstName.tr,
-        validator: Validatorless.multiple([
-          Validatorless.required("The field is obligatory"),
-          Validatorless.min(
-              3, "Length cannot be less than @size".trParams({"size": "3"})),
-          Validatorless.max(18,
-              "Length cannot be greater than @size".trParams({"size": "18"})),
-        ]),
-      ),
+          // first name
+          InputFormFieldWidget(
+            controller: controller.firstNameController,
+            labelText: LocaleKeys.profileEditFirstName.tr,
+            validator: Validatorless.multiple([
+              Validatorless.required("The field is obligatory"),
+              Validatorless.min(
+                3,
+                "Length cannot be less than @size".trParams({"size": "3"}),
+              ),
+              Validatorless.max(
+                18,
+                "Length cannot be greater than @size".trParams({"size": "18"}),
+              ),
+            ]),
+          ),
 
-      // last name
-      InputFormFieldWidget(
-        controller: controller.lastNameController,
-        labelText: LocaleKeys.profileEditLastName.tr,
-        validator: Validatorless.multiple([
-          Validatorless.required("The field is obligatory"),
-          Validatorless.min(
-              3, "Length cannot be less than @size".trParams({"size": "3"})),
-          Validatorless.max(18,
-              "Length cannot be greater than @size".trParams({"size": "18"})),
-        ]),
-      ),
+          // last name
+          InputFormFieldWidget(
+            controller: controller.lastNameController,
+            labelText: LocaleKeys.profileEditLastName.tr,
+            validator: Validatorless.multiple([
+              Validatorless.required("The field is obligatory"),
+              Validatorless.min(
+                3,
+                "Length cannot be less than @size".trParams({"size": "3"}),
+              ),
+              Validatorless.max(
+                18,
+                "Length cannot be greater than @size".trParams({"size": "18"}),
+              ),
+            ]),
+          ),
 
-      // Email
-      InputFormFieldWidget(
-        keyboardType: TextInputType.emailAddress,
-        controller: controller.emailController,
-        labelText: LocaleKeys.profileEditEmail.tr,
-        validator: Validatorless.multiple([
-          Validatorless.required("The field is obligatory"),
-          Validatorless.email(LocaleKeys.validatorEmail.tr),
-        ]),
-      ),
-      // end
-    ]
+          // Email
+          InputFormFieldWidget(
+            keyboardType: TextInputType.emailAddress,
+            controller: controller.emailController,
+            labelText: LocaleKeys.profileEditEmail.tr,
+            validator: Validatorless.multiple([
+              Validatorless.required("The field is obligatory"),
+              Validatorless.email(LocaleKeys.validatorEmail.tr),
+            ]),
+          ),
+          // end
+        ]
         .toColumn()
         .paddingAll(AppSpace.card)
         .card(
           color: context.colors.scheme.surface,
           margin: EdgeInsets.zero,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-          ),
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
           elevation: 0.1,
         )
         .paddingBottom(AppSpace.card);
@@ -128,62 +148,74 @@ class ProfileEditPage extends GetView<ProfileEditController> {
   //  password 表单
   Widget _buildPasswordForm(BuildContext context) {
     return <Widget>[
-      // old password
-      InputFormFieldWidget(
-        obscureText: true,
-        keyboardType: TextInputType.visiblePassword,
-        controller: controller.oldPasswordController,
-        labelText: LocaleKeys.profileEditOldPassword.tr,
-        tipText: LocaleKeys.profileEditPasswordTip.tr,
-        validator: Validatorless.multiple([
-          Validatorless.min(
-              3, "Length cannot be less than @size".trParams({"size": "3"})),
-          Validatorless.max(18,
-              "Length cannot be greater than @size".trParams({"size": "18"})),
-        ]),
-      ),
+          // old password
+          InputFormFieldWidget(
+            obscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+            controller: controller.oldPasswordController,
+            labelText: LocaleKeys.profileEditOldPassword.tr,
+            tipText: LocaleKeys.profileEditPasswordTip.tr,
+            validator: Validatorless.multiple([
+              Validatorless.min(
+                3,
+                "Length cannot be less than @size".trParams({"size": "3"}),
+              ),
+              Validatorless.max(
+                18,
+                "Length cannot be greater than @size".trParams({"size": "18"}),
+              ),
+            ]),
+          ),
 
-      // new password
-      InputFormFieldWidget(
-        obscureText: true,
-        keyboardType: TextInputType.visiblePassword,
-        controller: controller.newPasswordController,
-        labelText: LocaleKeys.profileEditNewPassword.tr,
-        tipText: LocaleKeys.profileEditPasswordTip.tr,
-        validator: Validatorless.multiple([
-          Validatorless.min(
-              3, "Length cannot be less than @size".trParams({"size": "3"})),
-          Validatorless.max(18,
-              "Length cannot be greater than @size".trParams({"size": "18"})),
-        ]),
-      ),
+          // new password
+          InputFormFieldWidget(
+            obscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+            controller: controller.newPasswordController,
+            labelText: LocaleKeys.profileEditNewPassword.tr,
+            tipText: LocaleKeys.profileEditPasswordTip.tr,
+            validator: Validatorless.multiple([
+              Validatorless.min(
+                3,
+                "Length cannot be less than @size".trParams({"size": "3"}),
+              ),
+              Validatorless.max(
+                18,
+                "Length cannot be greater than @size".trParams({"size": "18"}),
+              ),
+            ]),
+          ),
 
-      // confirm password
-      InputFormFieldWidget(
-        obscureText: true,
-        keyboardType: TextInputType.visiblePassword,
-        controller: controller.confirmNewPasswordController,
-        labelText: LocaleKeys.profileEditConfirmPassword.tr,
-        tipText: LocaleKeys.profileEditPasswordTip.tr,
-        validator: Validatorless.multiple([
-          Validatorless.min(
-              3, "Length cannot be less than @size".trParams({"size": "3"})),
-          Validatorless.max(18,
-              "Length cannot be greater than @size".trParams({"size": "18"})),
-        ]),
-      ),
+          // confirm password
+          InputFormFieldWidget(
+            obscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+            controller: controller.confirmNewPasswordController,
+            labelText: LocaleKeys.profileEditConfirmPassword.tr,
+            tipText: LocaleKeys.profileEditPasswordTip.tr,
+            validator: Validatorless.multiple([
+              Validatorless.min(
+                3,
+                "Length cannot be less than @size".trParams({"size": "3"}),
+              ),
+              Validatorless.max(
+                18,
+                "Length cannot be greater than @size".trParams({"size": "18"}),
+              ),
+            ]),
+          ),
 
-      // end
-    ].toColumn().paddingAll(AppSpace.card).card(
+          // end
+        ]
+        .toColumn()
+        .paddingAll(AppSpace.card)
+        .card(
           color: context.colors.scheme.surface,
           margin: EdgeInsets.zero,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-          ),
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
           elevation: 0.1,
         );
   }
-
 
   @override
   Widget build(BuildContext context) {

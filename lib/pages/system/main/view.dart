@@ -56,12 +56,20 @@ class _MainViewGetX extends GetView<MainController> {
             return BuildNavigation(
               currentIndex: controller.currentIndex,
               items: [
-                NavigationItemModel(label: '首页', icon: AssetsSvgs.navHomeSvg),
                 NavigationItemModel(
-                  label: '博商AI',
-                  icon: AssetsSvgs.navCartSvg,
-                  count: CartService.to.lineItemsCount,
+                  label: LocaleKeys.tabBarHome.tr,
+                  icon: AssetsSvgs.navHomeSvg,
                 ),
+                NavigationItemModel(
+                  label: LocaleKeys.tabBarAI.tr,
+                  icon: AssetsSvgs.navCartSvg,
+                  // count: CartService.to.lineItemsCount,
+                ),
+                NavigationItemModel(
+                  label: LocaleKeys.tabBarProfile.tr,
+                  icon: AssetsSvgs.navProfileSvg,
+                ),
+
                 // NavigationItemModel(
                 //   label: LocaleKeys.tabBarCart.tr,
                 //   icon: AssetsSvgs.navCartSvg,
@@ -76,10 +84,10 @@ class _MainViewGetX extends GetView<MainController> {
                 //   icon: AssetsSvgs.navMessageSvg,
                 //   count: 9 //UnreadCount.value,
                 // ),
-                NavigationItemModel(
-                  label: LocaleKeys.tabBarProfile.tr,
-                  icon: AssetsSvgs.navProfileSvg,
-                ),
+                // NavigationItemModel(
+                //   label: LocaleKeys.tabBarProfile.tr,
+                //   icon: AssetsSvgs.navProfileSvg,
+                // ),
               ],
               onTap: controller.onJumpToPage, // 切换tab事件
             );
@@ -96,10 +104,11 @@ class _MainViewGetX extends GetView<MainController> {
             // HomePage(),
             TiktokPage(),
             AiPage(),
+            MinePage(),
             // CartIndexPage(),
             // DynamicPage(),
             // MsgIndexPage(),
-            MyIndexPage(),
+            // MyIndexPage(),
           ],
         ),
       ),
