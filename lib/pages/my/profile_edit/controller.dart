@@ -102,4 +102,11 @@ class ProfileEditController extends GetxController {
       update(["profile_edit"]);
     }
   }
+  
+  // 退出登录
+  Future<void> onLogout() async {
+    // await UserApi.logout();
+    // UserService.to.logout();
+    Get.toNamed(RouteNames.loginMethod);
+  }
 }

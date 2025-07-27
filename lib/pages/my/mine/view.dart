@@ -1,14 +1,10 @@
-import 'package:ducafe_ui_core/ducafe_ui_core.dart';
+import 'package:ducafe_ui_core/ducafe_ui_core.dart'; 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:weichat_test/pages/mine/widgets/news.dart';
-import 'package:weichat_test/pages/mine/widgets/quote.dart';
-import 'package:weichat_test/pages/mine/widgets/report.dart';
-import 'package:weichat_test/pages/mine/widgets/setting_view.dart';
-
-import '../../common/index.dart';
+import 'package:get/get.dart';  
+import '../../../common/index.dart';
 import 'index.dart';
+import 'widgets/setting_view.dart';
 
 class MinePage extends StatefulWidget {
   const MinePage({Key? key}) : super(key: key);
@@ -49,7 +45,12 @@ class _MineViewGetX extends GetView<MineController> {
       titleSpacing: AppSpace.listItem,
 
       // 左侧的消息通知按钮区
-      leading: IconWidget.icon(Icons.message_outlined, size: 25),
+      leading: GestureDetector(
+        onTap: () {
+          Get.toNamed(RouteNames.testList);
+        },
+        child: IconWidget.icon(Icons.message_outlined, size: 25),
+      ),
       // 右侧的设置按钮区
       actions: [
         // 图标

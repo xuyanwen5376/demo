@@ -2,6 +2,8 @@ import '../locale_keys.dart';
 
 /// 多语言 英文
 Map<String, String> localeEn = {
+  LocaleKeys.appName: 'Boss AI Headlines',
+
   // 通用
   LocaleKeys.commonSearchInput: 'Enter keyword',
   LocaleKeys.commonBottomSave: 'Save',
@@ -45,6 +47,10 @@ Map<String, String> localeEn = {
   LocaleKeys.loginSignUp: 'Sign Up',
   LocaleKeys.loginOut: 'Sign Out',
   LocaleKeys.loginOrText: '- OR -',
+  LocaleKeys.loginMethodPhone: 'Login with Phone',
+  LocaleKeys.loginMethodWx: 'Login with WeChat',
+  LocaleKeys.logiPhoneNumber: 'phone number',
+  LocaleKeys.loginVerificationCode: 'verification code',
 
   // 注册 - new user
   LocaleKeys.registerTitle: 'Register',
@@ -259,4 +265,10 @@ Map<String, String> localeEn = {
   LocaleKeys.tiktokTitle: 'TikTok',
   LocaleKeys.tiktokBtnNews: 'News',
   LocaleKeys.tiktokBtnReport: 'Report',
+
+
+  // 老板人格测试
+   LocaleKeys.startTest: 'start test',
+  LocaleKeys.reTest: 're-test', // 重新测试
+  LocaleKeys.shareResult: 'share result', // 分享结果
  };

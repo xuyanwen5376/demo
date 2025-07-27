@@ -35,7 +35,7 @@ class ProfileEditPage extends GetView<ProfileEditController> {
         // 退出登录
         ButtonWidget.primary(
           LocaleKeys.loginOut.tr,
-          onTap: controller.onSave,
+          onTap: controller.onLogout,
         ).width(double.infinity),
       ].toColumn().paddingAll(AppSpace.card),
     );

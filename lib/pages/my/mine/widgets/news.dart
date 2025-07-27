@@ -2,8 +2,7 @@ import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../common/index.dart';
-import '../../../common/components/news_item.dart';
+import '../../../../common/index.dart'; 
 import '../index.dart';
 
 class NewsView extends GetView<MineController> {

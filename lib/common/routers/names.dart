@@ -48,6 +48,8 @@ class RouteNames {
   static const dynamic = '/dynamic';
   static const ai = '/ai';
   static const tiktok = '/tiktok';
-  static const mine = '/mine';
-  static const persontest = '/persontest';
+  static const mine = '/my/mine';
+  static const testList = '/my/test_list';
+  static const testResult = '/my/test_result';
+  static const loginMethod = '/system_login_method';
 }

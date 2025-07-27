@@ -1,5 +1,7 @@
 /// 多语言 keys
 class LocaleKeys {
+  static const appName = 'app_name';
+
   // 通用
   static const commonBottomSave = 'common_bottom_save';
   static const commonBottomRemove = 'common_bottom_remove';
@@ -39,7 +41,10 @@ class LocaleKeys {
   static const loginOrText = 'login_or_text';
   static const loginSignUp = 'login_sign_up';
   static const loginOut = 'login_out';
-  
+  static const loginMethodPhone = 'login_method_phone'; // 手机号登录
+  static const loginMethodWx = 'login_method_wx'; // 微信登录
+  static const logiPhoneNumber = 'login_phone_number'; // 手机号码
+  static const loginVerificationCode = 'login_verification_code'; // 验证码
 
   // 注册 - register user
   static const registerTitle = 'register_title';
@@ -122,20 +127,19 @@ class LocaleKeys {
   static const myBtnLogout = "my_btn_logout";
   static const myBtnBillingAddress = "my_btn_billing_address";
   static const myBtnShippingAddress = "my_btn_shipping_address";
- 
-  static const myTabNews = "my_tab_news"; 
-  static const myTabReport = "my_tab_report"; 
+
+  static const myTabNews = "my_tab_news";
+  static const myTabReport = "my_tab_report";
   static const myTabQuote = "my_tab_quote";
 
-// 个人信息   
+  // 个人信息
   static const myInfoTitle = "my_info_title";
-// 历史记录
-  static const myHistoryTitle = "my_history_title"; 
-// 语音风格
-  static const myVoiceStyleTitle = "my_voice_style_title"; 
-// 测评结果
+  // 历史记录
+  static const myHistoryTitle = "my_history_title";
+  // 语音风格
+  static const myVoiceStyleTitle = "my_voice_style_title";
+  // 测评结果
   static const myTestResultTitle = "my_test_result_title";
-
 
   // 订单配送地址
   static const addressViewTitle = "address_view_title";
@@ -234,9 +238,8 @@ class LocaleKeys {
   static const chatTipDeleteConversation = 'chat_tip_delete_conversation';
   static const chatTipCreateChatFail = 'chat_tip_create_chat_fail';
   static const chatGroupTitle = 'chat_group_title';
-  static const chatMessageUnit = 'chat_message_unit'; 
+  static const chatMessageUnit = 'chat_message_unit';
   static const chatAppNotificationMessage = 'chat_app_notification_message';
- 
 
   // 聊天组设置
   static const chatGroupSettingMemberAdd = 'chat_group_setting_member_add';
@@ -264,9 +267,15 @@ class LocaleKeys {
   static const chatGroupTipChangeMemberInfo =
       'chat_group_tip_change_member_info';
 
-
   // 抖音
   static const tiktokTitle = 'tiktok_title';
   static const tiktokBtnNews = 'tiktok_btn_news';
   static const tiktokBtnReport = 'tiktok_btn_report';
+
+  // 老板人格测试
+  static const startTest = 'start_test';
+  // 重新测试
+  static const reTest = 're_test';
+  // 分享结果
+  static const shareResult = 'share_result';
 }

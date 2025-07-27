@@ -2,6 +2,8 @@ import '../locale_keys.dart';
 
 /// 多语言 中文
 Map<String, String> localeZh = {
+  LocaleKeys.appName: '博商AI头条',
+
   // 通用
   LocaleKeys.commonSearchInput: '输入关键字',
   LocaleKeys.commonBottomSave: '保存',
@@ -44,6 +46,10 @@ Map<String, String> localeZh = {
   LocaleKeys.loginSignUp: '注 册',
   LocaleKeys.loginOut: '退出登陆',
   LocaleKeys.loginOrText: '- 或者 -',
+  LocaleKeys.loginMethodPhone: '手机号登录',
+  LocaleKeys.loginMethodWx: '微信登录',
+  LocaleKeys.logiPhoneNumber: 'login_phone_number',
+  LocaleKeys.loginVerificationCode: 'login_verification_code',
 
   // 注册 - register user
   LocaleKeys.registerTitle: '欢迎',
@@ -132,8 +138,8 @@ Map<String, String> localeZh = {
   LocaleKeys.myInfoTitle: '个人信息',
   LocaleKeys.myHistoryTitle: '历史记录',
   LocaleKeys.myVoiceStyleTitle: '语音风格',
-  LocaleKeys.myTestResultTitle: '测评结果', 
-  
+  LocaleKeys.myTestResultTitle: '测评结果',
+
   // 订单配送地址
   LocaleKeys.addressViewTitle: '@type 地址',
   LocaleKeys.addressFirstName: '姓',
@@ -253,4 +259,9 @@ Map<String, String> localeZh = {
   LocaleKeys.tiktokTitle: '抖音',
   LocaleKeys.tiktokBtnNews: '快讯',
   LocaleKeys.tiktokBtnReport: '研报',
+
+  // 老板人格测试
+  LocaleKeys.startTest: '开始测试',
+  LocaleKeys.reTest: '重新测试',
+  LocaleKeys.shareResult: '分享结果',
 };

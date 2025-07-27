@@ -18,3 +18,4 @@ export 'dropdown.dart';
 export 'price_range.dart';
 export 'stars_list.dart';
 export 'post_appbar.dart';
+export 'news_item.dart';
