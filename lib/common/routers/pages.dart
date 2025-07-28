@@ -112,5 +112,6 @@ class RoutePages {
       name: RouteNames.loginMethod,
       page: () => const LoginMethodPage(),
     ),
+    GetPage(name: RouteNames.tiktokDetail, page: () => const TiktokDetailPage()),
   ];
 }

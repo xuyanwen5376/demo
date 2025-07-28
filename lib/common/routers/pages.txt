@@ -52,16 +52,16 @@
         page: () => const ProductListPage(),
       ),
       GetPage(
-        name: RouteNames.mine,
-        page: () => const MinePage(),
-      ),
-      GetPage(
         name: RouteNames.msgMsgIndex,
         page: () => const MsgIndexPage(),
       ),
       GetPage(
         name: RouteNames.myLanguage,
         page: () => const LanguagePage(),
+      ),
+      GetPage(
+        name: RouteNames.myMine,
+        page: () => const MinePage(),
       ),
       GetPage(
         name: RouteNames.myMyAddress,
@@ -84,12 +84,16 @@
         page: () => const ProfileEditPage(),
       ),
       GetPage(
-        name: RouteNames.myTheme,
-        page: () => const ThemePage(),
+        name: RouteNames.myTestList,
+        page: () => const TestListPage(),
       ),
       GetPage(
-        name: RouteNames.persontest,
-        page: () => const PersontestPage(),
+        name: RouteNames.myTestResult,
+        page: () => const TestResultPage(),
+      ),
+      GetPage(
+        name: RouteNames.myTheme,
+        page: () => const ThemePage(),
       ),
       GetPage(
         name: RouteNames.post,
@@ -180,6 +184,10 @@
         page: () => const LoginPage(),
       ),
       GetPage(
+        name: RouteNames.systemLoginMethod,
+        page: () => const LoginMethodPage(),
+      ),
+      GetPage(
         name: RouteNames.systemMain,
         page: () => const MainPage(),
       ),
@@ -206,4 +214,8 @@
       GetPage(
         name: RouteNames.tiktok,
         page: () => const TiktokPage(),
+      ),
+      GetPage(
+        name: RouteNames.tiktokDetail,
+        page: () => const TiktokDetailPage(),
       ),

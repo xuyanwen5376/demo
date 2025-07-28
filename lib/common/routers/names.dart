@@ -52,4 +52,5 @@ class RouteNames {
   static const testList = '/my/test_list';
   static const testResult = '/my/test_result';
   static const loginMethod = '/system_login_method';
+  static const tiktokDetail = '/tiktok_detail';
 }

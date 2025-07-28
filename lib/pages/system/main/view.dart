@@ -62,7 +62,7 @@ class _MainViewGetX extends GetView<MainController> {
                 ),
                 NavigationItemModel(
                   label: LocaleKeys.tabBarAI.tr,
-                  icon: AssetsSvgs.navCartSvg,
+                  icon: AssetsSvgs.navMessageSvg,
                   // count: CartService.to.lineItemsCount,
                 ),
                 NavigationItemModel(

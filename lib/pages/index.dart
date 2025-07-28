@@ -52,3 +52,4 @@ export 'my/mine/index.dart';
 export 'my/test_list/index.dart';
 export 'my/test_result/index.dart';
 export 'system/login_method/index.dart';
+export 'tiktok_detail/index.dart';

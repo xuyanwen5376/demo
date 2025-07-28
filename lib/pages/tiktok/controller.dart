@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
+import '../../common/index.dart';
+
 enum MediaType { video, image }
 
 class MediaItem {
-  final String url;
+  final String? url;
   final MediaType type;
   MediaItem({required this.url, required this.type});
 }
@@ -43,14 +44,8 @@ class TiktokController extends GetxController {
   RxBool isSpeaking = false.obs;
 
   final List<MediaItem> mediaList = [
-    MediaItem(
-      url: 'https://www.w3schools.com/w3images/lights.jpg',
-      type: MediaType.image,
-    ),
-    MediaItem(
-      url: 'https://www.w3schools.com/w3images/fjords.jpg',
-      type: MediaType.image,
-    ),
+    MediaItem(url: null, type: MediaType.image),
+    MediaItem(url: null, type: MediaType.image),
     MediaItem(
       url:
           'https://1305154771.vod2.myqcloud.com/0733b1e4vodcq1305154771/9e274118387702302919994622/lqIn98EBK54A.mp4',
@@ -75,7 +70,7 @@ class TiktokController extends GetxController {
     ReportViewItem(
       url: 'https://www.w3schools.com/w3images/lights.jpg',
       title: '标题',
-      desc: '描述描述描 描述描述 描述描述描述描述描述  阿达 VS对方水电费水电费描述描述',
+      desc: '描述描述描 描述描述 描述描述描述描述描述描述描述  阿达 VS对方水电费水电费描述描述',
       date: '2021-01-01',
       readCount: '100',
       likeCount: '100',
@@ -85,7 +80,7 @@ class TiktokController extends GetxController {
     ReportViewItem(
       url: 'https://www.w3schools.com/w3images/lights.jpg',
       title: '标题',
-      desc: '描述描述 描述描述描述描 述描述描述描述描述描述描述描述描描述描述描述描述描述描述描述描',
+      desc: '描述描述 描述描述描述描 述描述描述描述描述描述描述描述描述描描述描述描述描述描述描述描述描',
       date: '2021-01-01',
       readCount: '100',
       likeCount: '100',
@@ -129,7 +124,7 @@ class TiktokController extends GetxController {
         textToSpeak =
             "这是第${currentIndex.value + 1}条快讯内容，请听好。一二三四五六七八九，九八七六五四三二一。";
       }
-    }  
+    }
 
     // 如果没有内容，使用默认内容
     if (textToSpeak.isEmpty) {
@@ -166,7 +161,7 @@ class TiktokController extends GetxController {
     final item = mediaList[index];
     if (item.type != MediaType.video) return;
     if (controllers.containsKey(index)) return;
-    final ctrl = VideoPlayerController.network(item.url);
+    final ctrl = VideoPlayerController.network(item.url ?? '');
     ctrl.initialize().then((_) {
       ctrl.setLooping(true);
       if (index == currentIndex.value) ctrl.play();
@@ -193,15 +188,13 @@ class TiktokController extends GetxController {
 
   // 切换快讯 研报
   void onSwitchNews(String type) {
-    // 切换快讯 研报
-    if (type == "news") {
-      // 切换快讯
-      isNews = true;
-    } else {
-      // 切换研报
-      isNews = false;
-    }
+    isNews = type == "news";
     update(["tiktok"]);
+  }
+
+  // 点击进入详情页
+  void onTapDetail() {
+    Get.toNamed(RouteNames.tiktokDetail);
   }
 
   @override
@@ -210,6 +203,7 @@ class TiktokController extends GetxController {
     _initData();
   }
 
+  // 资源释放
   @override
   void onClose() {
     // 停止语音播放
