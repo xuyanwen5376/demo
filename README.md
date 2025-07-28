@@ -2,6 +2,11 @@
 
 这是一个基于Flutter开发的应用程序，提供用户登录、注册、 等功能。
 
+
+# 演示
+https://github.com/xuyanwen5376/demo/blob/main/tinywow_Simulator%20Screen%20Recording%20-%20iPhone%2016%20-%202025-07-28%20at%2015.47.12_82808679.gif
+
+
 ## 功能特性
 
 - 用户认证系统（登录、注册、找回密码） 
