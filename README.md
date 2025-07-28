@@ -4,8 +4,8 @@
 
 
 # 演示
-<!-- ![演示](https://github.com/xuyanwen5376/demo/blob/main/tinywow_Simulator%20Screen%20Recording%20-%20iPhone%2016%20-%202025-07-28%20at%2015.47.12_82808679.gif)
-  -->
+![演示](https://github.com/xuyanwen5376/demo/blob/main/tinywow_Simulator%20Screen%20Recording%20-%20iPhone%2016%20-%202025-07-28%20at%2015.47.12_82808679.gif)
+ 
 [下载视频](https://raw.githubusercontent.com/xuyanwen5376/demo/main/%E6%9C%AA%E5%91%BD%E5%90%8D.mp4)
 
 ## 功能特性
