@@ -21,6 +21,7 @@ class TextWidget extends StatelessWidget {
     this.overflow,
     this.textAlign,
     this.fontStyle,
+    this.textDecoration,
   });
 
   /// 文字
@@ -59,6 +60,9 @@ class TextWidget extends StatelessWidget {
   /// 对齐方式
   final TextAlign? textAlign;
 
+  /// 下划线
+  final TextDecoration? textDecoration;
+
   /// h1
   const TextWidget.h1(
     this.text, {
@@ -73,6 +77,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.h1;
 
   /// h2
@@ -89,6 +94,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.h2;
 
   /// h3
@@ -105,6 +111,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.h3;
 
   /// h4
@@ -121,6 +128,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.h4;
 
   /// body
@@ -137,6 +145,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.body;
 
   /// label
@@ -153,6 +162,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.label;
 
   /// muted
@@ -169,6 +179,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.muted;
 
   /// title1
@@ -185,6 +196,7 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
+    this.textDecoration,
   }) : type = TextWidgetType.title1;
 
   /// title2
@@ -201,7 +213,8 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
-  }) : type = TextWidgetType.title2;
+    this.textDecoration,
+    }) : type = TextWidgetType.title2;
 
   /// title3
   const TextWidget.title3(
@@ -217,7 +230,8 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
-  }) : type = TextWidgetType.title3;
+    this.textDecoration,
+    }) : type = TextWidgetType.title3;
 
   /// title4
   const TextWidget.title4(
@@ -233,7 +247,8 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
-  }) : type = TextWidgetType.title4;
+    this.textDecoration,
+    }) : type = TextWidgetType.title4;
 
   /// title5
   const TextWidget.title5(
@@ -249,7 +264,8 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
-  }) : type = TextWidgetType.title5;
+    this.textDecoration,
+    }) : type = TextWidgetType.title5;
 
   /// title6
   const TextWidget.title6(
@@ -265,7 +281,8 @@ class TextWidget extends StatelessWidget {
     this.textAlign,
     this.textStyle,
     this.fontStyle,
-  }) : type = TextWidgetType.title6;
+    this.textDecoration,
+      }) : type = TextWidgetType.title6;
 
   /// 文字尺寸
   double _fontSize() {
@@ -336,6 +353,7 @@ class TextWidget extends StatelessWidget {
         fontSize: _fontSize(),
         fontWeight: weight,
         fontStyle: fontStyle,
+        decoration: textDecoration,
       ),
       maxLines: maxLines,
       softWrap: softWrap,

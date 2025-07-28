@@ -49,8 +49,17 @@ Map<String, String> localeEn = {
   LocaleKeys.loginOrText: '- OR -',
   LocaleKeys.loginMethodPhone: 'Login with Phone',
   LocaleKeys.loginMethodWx: 'Login with WeChat',
-  LocaleKeys.logiPhoneNumber: 'phone number',
+  LocaleKeys.loginPhoneNumber: 'Phone Number',
   LocaleKeys.loginVerificationCode: 'verification code',
+  LocaleKeys.loginVerificationCodeSend: 'Send Verification Code',
+  // 我已阅读并同意
+  LocaleKeys.loginMethodAgree: 'I have read and agree to',
+  // 用户协议
+  LocaleKeys.loginMethodUserProtocol: 'User Agreement',
+  // 和
+  LocaleKeys.loginMethodAnd: 'and',
+  // 隐私政策
+  LocaleKeys.loginMethodPrivacyPolicy: 'Privacy Policy',
 
   // 注册 - new user
   LocaleKeys.registerTitle: 'Register',

@@ -1,7 +1,7 @@
 import 'package:ducafe_ui_core/ducafe_ui_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
- 
+
 import '../../../common/components/pin.dart';
 import '../../../common/index.dart';
 import 'index.dart';
@@ -14,10 +14,7 @@ class RegisterPinPage extends GetView<RegisterPinController> {
     return SingleChildScrollView(
       child: <Widget>[
             // 头部标题
-            PageTitleWidget(
-              title: LocaleKeys.registerPinTitle.tr,
-              desc: LocaleKeys.registerPinDesc.tr,
-            ),
+            PageTitleWidget(),
 
             // 表单
             _buildForm().card(),

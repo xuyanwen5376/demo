@@ -43,9 +43,18 @@ class LocaleKeys {
   static const loginOut = 'login_out';
   static const loginMethodPhone = 'login_method_phone'; // 手机号登录
   static const loginMethodWx = 'login_method_wx'; // 微信登录
-  static const logiPhoneNumber = 'login_phone_number'; // 手机号码
+  static const loginPhoneNumber = 'login_phone_number'; // 手机号码
   static const loginVerificationCode = 'login_verification_code'; // 验证码
-
+  static const loginVerificationCodeSend = 'login_verification_code_send'; // 发送验证码
+  // 我已阅读并同意
+  static const loginMethodAgree = 'login_method_agree';
+  // 用户协议
+  static const loginMethodUserProtocol = 'login_method_user_protocol';
+  // 和
+  static const loginMethodAnd = 'login_method_and';
+  // 隐私政策
+  static const loginMethodPrivacyPolicy = 'login_method_privacy_policy';
+  
   // 注册 - register user
   static const registerTitle = 'register_title';
   static const registerDesc = 'register_desc';

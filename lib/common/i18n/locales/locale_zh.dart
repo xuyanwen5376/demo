@@ -48,8 +48,17 @@ Map<String, String> localeZh = {
   LocaleKeys.loginOrText: '- 或者 -',
   LocaleKeys.loginMethodPhone: '手机号登录',
   LocaleKeys.loginMethodWx: '微信登录',
-  LocaleKeys.logiPhoneNumber: 'login_phone_number',
-  LocaleKeys.loginVerificationCode: 'login_verification_code',
+  LocaleKeys.loginPhoneNumber: '手机号码',
+  LocaleKeys.loginVerificationCode: '验证码',
+  LocaleKeys.loginVerificationCodeSend: '发送验证码',
+  // 我已阅读并同意
+  LocaleKeys.loginMethodAgree: '我已阅读并同意',
+  // 用户协议
+  LocaleKeys.loginMethodUserProtocol: '用户协议',
+  // 和
+  LocaleKeys.loginMethodAnd: '和',
+  // 隐私政策
+  LocaleKeys.loginMethodPrivacyPolicy: '隐私政策',
 
   // 注册 - register user
   LocaleKeys.registerTitle: '欢迎',
