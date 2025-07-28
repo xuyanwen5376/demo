@@ -1,4 +1,4 @@
-import 'package:get/get_navigation/src/routes/get_route.dart'; 
+import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../../pages/index.dart';
 import 'index.dart';
 
@@ -108,10 +108,11 @@ class RoutePages {
     GetPage(name: RouteNames.mine, page: () => const MinePage()),
     GetPage(name: RouteNames.testList, page: () => const PersontestPage()),
     GetPage(name: RouteNames.testResult, page: () => const TestResultPage()),
+    GetPage(name: RouteNames.loginMethod, page: () => const LoginMethodPage()),
     GetPage(
-      name: RouteNames.loginMethod,
-      page: () => const LoginMethodPage(),
+      name: RouteNames.tiktokDetail,
+      page: () => const TiktokDetailPage(),
+      binding: TiktokDetailBinding(),
     ),
-    GetPage(name: RouteNames.tiktokDetail, page: () => const TiktokDetailPage()),
   ];
 }
